@@ -1,0 +1,11 @@
+benötigt GIT auf rechner
+
+Git Basics
+(Linux shell)
+
+Git add X			: Datei zum Git hinzufügen
+git commit -m "nachricht"	: Fertigmachen zum push
+git push 					: Repository überschreiben
+git status					: Status
+
+git pull --all				: vom Repository laden
