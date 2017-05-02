@@ -1,0 +1,10 @@
+Abstract Sortieralgorithmen
+
+Sortieralgorithmen sind heutzutage nicht mehr wegzudenken. Mal eben schnell den niedrigsten Preis eines Artikel auf Webseite XYZ ermittelt und schon wurde Gebrauch von einem Sortieralgorithmus gemacht. Aber es gibt eine Unmenge an verschiedenen Algorithmen und diese sind unterschiedlich gut, es gibt schlechte und gute mit unterschiedlichen Eigenschaften. Es existiert eine Laufzeitberechnung (O-Notation) mit der die Laufzeit berechnet wird und dadurch Rückschlüsse auf die Performanz des Algorithmus liefert.
+
+Nun haben Sortieralgorithmen unterschiedliche Eigenschaften und es stellt sich die Frage ob die O-Notation alleine ausreicht um einen passenden Algorithmus auszuwählen und ob es möglich ist Regeln aufzustellen nach denen man den am besten geeigneten Algorithmus auswählen kann.
+
+Bei der Analyse wird auf die Eigenschaften: Stabilität  (ob der Algorithmus unnötige Arbeit leistet), In-Place (ob zusätzlicher Speicherplatz benötigt wird) und auf den Speicherverbrauch Wert gelegt um eine große Anzahl an Algorithmen miteinander zu vergleichen um Schwachstellen und Performanz zu bestimmen. 
+
+Bei der Evaluierung der Ergebnisse werden Anwendungstipps für die einzelnen Algorithmen abhängig von der Menge an Daten gegeben und eine Bewertung der O-Notation gegeben.
+
