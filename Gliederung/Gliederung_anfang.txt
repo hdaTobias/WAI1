@@ -1,0 +1,54 @@
+Gliederung Sortieralgorithmen
+
+Titel: O-Notation Blind folgen?!
+
+Abstract
+Einleitung
+	Leser fangen (Aufmerksam auf unser Thema machen)
+	Geschichte der SA
+{
+	Hauptteil
+	
+	Erklärungen
+		O-Notation
+		In Place
+		Stabilität
+		Heap/Stack Größe
+		Testumgebung (NETBEANS V8.2 ; G++ Compliler V11)
+		Benutzung: Standard eingebaute Sortieralgorithmen
+	
+	
+	Sortieralgorithmus X ( 1 bis 200)
+		Vorstellung
+		Pseudo Code
+		In Place
+		Stabilität
+		O-Notation
+		Tests 
+			(viele (speicher reicht)
+			viel zu viele (speicher reicht nicht)
+			bereits sortiert
+			Worst Case
+			Festplattenart (SSD / SATA)
+}
+
+
+Evaluierung
+	Vergleich der Ergebnisse
+	Ist die O-Notation ausreichend?
+	Wie wichtig sind In-Place und Stabilität
+	
+	
+	
+
+Zusammenfassung und Ausblick
+	mögliche neue Sortieralgorithmen?
+
+
+Quellen
+	Das INTERNET
+
+Bestätigung
+	Ich habe das gemacht !
+	
+Abgabe 07.06
