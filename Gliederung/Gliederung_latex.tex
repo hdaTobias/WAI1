@@ -14,11 +14,13 @@
 
 \pagenumbering{roman}
 \begin{document}
-\maketitle % setzt title author und date
 
+\maketitle % setzt title author und date
+\thispagestyle{empty} %Diese Seite ohne Seitenzahl
 \newpage{}
 
 \tableofcontents{}% 2 mal ausführen für richtige darstellung des Inhaltsverzeichnis!!!!!!!!!!!!!!!!!!!!!!
+\setcounter{page}{1} % Seitenzahlzähler zurück auf 1 setzen
 \newpage{}
 \pagenumbering{arabic}
 
