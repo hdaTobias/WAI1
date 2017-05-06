@@ -2,28 +2,31 @@
 
 \usepackage[ngerman]{babel} %deutsche Texte (Inhaltsverzeichnis)
 \usepackage[utf8]{inputenc} %UTF8 benutzen
+\usepackage{hyperref} %für links
 
 %fehlt noch betreuer, fach, seminararbeit, institut, ort
-\title{Sortieralgorithmen - Wie wichtig ist die O-Notation}
+\title{Wie wichtig ist die O-Notation}
 \author{Tobias Schneider, Fatih Kahraman}
 \date{\today}
 
 
 
-\pagenumbering{roman}
 
+\pagenumbering{roman}
 \begin{document}
 \maketitle % setzt title author und date
 
 \newpage{}
+
 \tableofcontents{}% 2 mal ausführen für richtige darstellung des Inhaltsverzeichnis!!!!!!!!!!!!!!!!!!!!!!
 \newpage{}
 \pagenumbering{arabic}
 
 
 \section{Einleitung}
+\subsection{Abstract}
 \subsection{Leser Fangen}
-\subsection{Geschichte der SA}
+\subsection{Problem und Relevanz}
 
 \section{Hauptteil}
 \subsection{Definitionen}
@@ -32,27 +35,39 @@
 \subsubsection{Stabilität}
 \subsubsection{Heap/Stack Größe}
 \subsubsection{Testumgebung}
-\subsubsection{Benutzung}
+SSD vs HDD , CPU, Compiler, Sprache ...
+
 
 \subsection{Sortieralgorithmus X}
+vorstellungen von Unterschiedlichen SA. min 5 bis (Textlimit erreicht ;D  )
 \subsubsection{Vorstellung X}
 \subsubsection{Pseudo Code}
-\subsubsection{In-Place}
-\subsubsection{Stabilität}
-\subsubsection{O-Notation}
-\subsubsection{Tests} % Genug speicher, zuwenig speicher, bereit sortiert, worst case, festplattenart
-
+\subsubsection{Parameter}
+O-Notation, In-Place, Stabilität
+\subsubsection{Testfälle}
+Worst Case, Average Case, Best Case, nearly sorted, festplattenart, genug Speicher, zuwenig Speicher, unterschiedliche Datentypen - Integer versus klassenobjekte
 
 \section{Schluss}
 \subsection{Evaluierung}
 \subsubsection{Vergleich der Ergebnisse}
 \subsubsection{relevanz der O-Notation}
-\subsubsection{Wie wichtig sind In-Place und Stabilität}
+\subsubsection{Wie wichtig sind weitere Kriterien}
 
 \subsection{Zusammenfassung und Ausblick}
-\subsubsection{Mögliche neue Sortieralgorithmen}
+\subsubsection{Fazit}
+\subsubsection{Anwendungstipps}
+
+
 
 \section{Literaturverzeichnis}
+vieles kostenlos mit hda Account  \url {www.ieeexplore.ieeee.org} \\ \\
+Analysis and Testing of Sorting Algorithms on a 
+Standard Dataset \url {http://ieeexplore.ieee.org/document/7280062/}\\ \\
+Rheinwerk OpenBook C von A bis Z \url {http://openbook.rheinwerk-verlag.de/c_von_a_bis_z} \\ \\
+Rheinwerk OpenBook Java ist auch eine Insel \url {http://openbook.rheinwerk-verlag.de/javainsel} \\ \\
+Wikipedia (Übersicht + keine verlässliche Quelle) \url {https://en.wikipedia.org/wiki/Sorting_algorithm}
+
+\section{Anhang}
 
 \section{Eidesstattliche Erklärung}
 \end{document}
