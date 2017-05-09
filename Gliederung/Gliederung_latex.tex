@@ -1,8 +1,9 @@
 \documentclass{article}
 
-\usepackage[ngerman]{babel} %deutsche Texte (Inhaltsverzeichnis)
-\usepackage[utf8]{inputenc} %UTF8 benutzen
-\usepackage{hyperref} %für links
+\usepackage[ngerman]{babel} % deutsche Texte (Inhaltsverzeichnis)
+\usepackage[utf8]{inputenc} % UTF8 benutzen
+\usepackage{hyperref} % für links
+\usepackage{graphicx} % für Bilder
 
 %fehlt noch betreuer, fach, seminararbeit, institut, ort
 \title{Wie wichtig ist die O-Notation}
@@ -15,8 +16,13 @@
 \pagenumbering{roman}
 \begin{document}
 
+% HDA FBI Logo
+\begin{figure}
+\includegraphics[scale = 1.5]{fbi_bild.png}
+\end{figure}
+
 \maketitle % setzt title author und date
-\thispagestyle{empty} %Diese Seite ohne Seitenzahl
+\thispagestyle{empty} % Diese Seite ohne Seitenzahl
 \newpage{}
 
 \tableofcontents{}% 2 mal ausführen für richtige darstellung des Inhaltsverzeichnis!!!!!!!!!!!!!!!!!!!!!!
@@ -31,7 +37,7 @@
 \subsection{Problem und Relevanz}
 
 \section{Hauptteil}
-\subsection{Definitionen}
+\subsection{Definition}
 \subsubsection{O-Notation}
 \subsubsection{In-Place}
 \subsubsection{Stabilität}
@@ -40,21 +46,24 @@
 SSD vs HDD , CPU, Compiler, Sprache ...
 
 
-\subsection{Sortieralgorithmus X}
-vorstellungen von Unterschiedlichen SA. min 5 bis (Textlimit erreicht ;D  )
-\subsubsection{Vorstellung X}
+\subsection{Sortieralgorithmen}
+Vorstellungen von unterschiedlichen SA. min 5 bis (Textlimit erreicht ;D  ) 
+\subsubsection{Vorstellung}
 \subsubsection{Pseudo Code}
 \subsubsection{Parameter}
-O-Notation, In-Place, Stabilität
+Wie sind die O-Notation, In-Place, Stabilität zu diesem SA
 \subsubsection{Testfälle}
-Worst Case, Average Case, Best Case, nearly sorted, festplattenart, genug Speicher, zuwenig Speicher, unterschiedliche Datentypen - Integer versus klassenobjekte
+Worst Case, Average Case, Best Case, nearly sorted, festplattenart, genug Speicher, zuwenig Speicher, unterschiedliche Datentypen - Integer versus Klassenobjekte
 
-\section{Schluss}
+
 \subsection{Evaluierung}
 \subsubsection{Vergleich der Ergebnisse}
-\subsubsection{relevanz der O-Notation}
+\subsubsection{Relevanz der O-Notation}
 \subsubsection{Wie wichtig sind weitere Kriterien}
+In-Place, Stabilität, Speicherplatz ...
 
+\section{Schluss}
+%\subsection{Fazit}
 \subsection{Zusammenfassung und Ausblick}
 \subsubsection{Fazit}
 \subsubsection{Anwendungstipps}
