@@ -9,3 +9,4 @@ git push 					: Repository überschreiben
 git status					: Status
 
 git pull --all				: vom Repository laden
+git clone [URL] 		: init Git
