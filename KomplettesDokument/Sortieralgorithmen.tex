@@ -1,0 +1,106 @@
+\documentclass{article}
+
+\usepackage[ngerman]{babel} % Deutsche Texte (Inhaltsverzeichnis)
+\usepackage[utf8]{inputenc} % UTF8 für ÜÄÖ
+\usepackage{hyperref} % Für Links
+\usepackage{graphicx} % Für Bilder
+\usepackage{amsmath} % mathe symbole
+\usepackage{amssymb} % erweiterte math symbole
+
+
+%\usepackage[style=ieee]{biblatex} %iee referenzen
+
+
+
+%Deckblatt
+
+\title{Sortieralgorithmen}
+\author{Tobias Schneider, Fatih Kahraman}
+\date{\today}
+
+
+
+\pagenumbering{roman}
+\begin{document}
+
+% HDA FBI Logo
+\begin{figure}
+\includegraphics[scale = 1.5]{fbi_bild.png}
+\end{figure}
+
+\maketitle % setzt title author und date
+\thispagestyle{empty} % Diese Seite ohne Seitenzahl
+\newpage{}
+
+\tableofcontents{}% 2 mal ausführen für richtige darstellung des Inhaltsverzeichnis!!!!!!!!!!!!!!!!!!!!!!
+\setcounter{page}{1} % Seitenzahlzähler zurück auf 1 setzen
+\newpage{}
+\pagenumbering{arabic}
+
+
+\section{Einleitung}
+\subsection{Abstract}
+\subsection{Leser Fangen}
+\subsection{Problem und Relevanz}
+
+\section{Hauptteil}
+\subsection{Grundlagen}
+\subsubsection{O-Notation}
+Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechnung anhand der gegebenen Eingabelänge n bestimmt. Dabei wird ein ungefähres Wachstumsverhalten des Algorithmus als mathematische Funktion definiert. Dies geschieht durch Analyse des Quellcodes und wird üblicherweise für drei Fälle durchgeführt: \\ \\
+\textbf {Worst-Case:} Es wird nach der maximalen Laufzeit des Algorithmus gesucht. Dies geschieht indem eine obere Schranke aufgestellt wird, über die die Laufzeit nicht steigt. Dieser Fall ist Sortieralgorithmus abhängig und kann nicht immer eine in umgekehrter Reihenfolge sortierte Liste sein.   \\
+\textbf {Best-Case:} Stellt die minimale Laufzeit da und wird durch eine untere Schranke realisiert. Auch hier fällt die Laufzeit nicht unter die Schranke. Der Best-Case ist nicht immer eine bereits aufsteigend sortierte Liste sein.\\
+\textbf {Average-Case:} Es wird eine durchschnittliche Laufzeit aufgestellt. \\ \\
+Ein Vorteil der Landau-Notation ist, dass sie komplett unabhängig von Hardware und Betriebssystem ist. Mit ihr kann man die Laufzeiten von Algorithmen miteinander vergleichen.
+Ein großer Nachteil ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern. Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
+
+\subsubsection{In-Place}
+Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der Tausch-Speicher der beim tausch zweier Werte benötigt wird.
+\subsubsection{Stabilität}
+Ein stabiler Algorithmus behält die Reihenfolge von äquivalenten Werten bei.
+\subsubsection{Heap/Stack Größe}
+\subsubsection{Testumgebung}
+SSD vs HDD , CPU, Compiler, Sprache ...
+
+
+\subsection{Sortieralgorithmen}
+Vorstellungen von unterschiedlichen SA. min 5 bis (Textlimit erreicht ;D  ) 
+\subsubsection{Vorstellung}
+Im folgenden Abschnitt werden wir uns hauptsächlich die Sortieralgorithmen im Detail anschauen. Für unsere Recherche haben wir uns auf drei grundlegende Verfahren eingeschränkt: Bubblesort, Quicksort und Mergesort. Der wohl am häufigsten verwendete Sortieralgorithmus ist der Quicksort. Seine Entstehung blickt weit zurück bis in die 60er Jahre und seither wird der Quicksort von vielen Forschern untersucht. Einer seiner haupt Eigenschaften ist es, dass er in-place abläuft, also keinen weiteren Speicher benötigt, um die Sortierung durchzuführen. Der Grunde, wieso Quicksort so schnell ist, ist, dass seine innere Schleife sehr kurz ist und somit einfach optimiert werden kann. Für die Sortierung von n Elementen wird im Durchschnitt n log (n) Operationen erfordet. Der Nachteil des Algorithmus ist, dass er rekursiv ist, also im worst-case braucht er $n^{2}$  Operationen. Ausgehend von diesen Behauptungen aus dem Netz, werden wir Tests durchführen, um zu schauen, in welchen Gebieten oder unter welchen Umständen diese genannten Aussagen gelten.
+\subsubsection{Pseudo Code}
+\subsubsection{Eigenschaften}
+Wie sind die O-Notation, In-Place, Stabilität zu diesem SA
+\subsubsection{Testfälle}
+Worst Case, Average Case, Best Case, nearly sorted, festplattenart, genug Speicher, zuwenig Speicher, unterschiedliche Datentypen - Integer versus Klassenobjekte
+
+
+\subsection{Evaluierung}
+\subsubsection{Vergleich der Ergebnisse}
+\subsubsection{Relevanz der O-Notation}
+\subsubsection{Wie wichtig sind weitere Kriterien}
+In-Place, Stabilität, Speicherplatz ...
+
+\section{Schluss}
+%\subsection{Fazit}
+\subsection{Zusammenfassung und Ausblick}
+\subsubsection{Fazit}
+\subsubsection{Anwendungstipps}
+
+
+
+\section{Literatur Alt}
+Sortieralgorithmen unter mathematischen Gesichtspunkten  \url {http://www.christian-rehn.de/wp-content/uploads/2009/08/Sortieralgorithmen.pdf} \\ \\
+Analysis and Testing of Sorting Algorithms on a Standard Dataset \url {http://ieeexplore.ieee.org/document/7280062/}\\ \\
+Rheinwerk OpenBook C von A bis Z \url {http://openbook.rheinwerk-verlag.de/c_von_a_bis_z} \\ \\
+Rheinwerk OpenBook Java ist auch eine Insel \url {http://openbook.rheinwerk-verlag.de/javainsel} \\ \\
+
+läuft das jetzt \cite{Rehn2006Sortieralgorithmen} wirklich?
+\section{Literaturverzeichnis}
+
+%\bibliography{mySA_Bib}
+\bibliographystyle{ieeetr}
+\bibliography{../BibTex/Sortieralgorithmen.bib}
+
+%\section{Anhang} %Vllt später verwenden
+
+
+\end{document}
