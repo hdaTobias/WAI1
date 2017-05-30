@@ -6,9 +6,16 @@
 \usepackage{graphicx} % Für Bilder
 \usepackage{amsmath} % mathe symbole
 \usepackage{amssymb} % erweiterte math symbole
+\usepackage{listings} % für Code
+\usepackage{xcolor} % Für Code
+\usepackage{tabularx} % für tabellen
 
+\lstset{ %
+language = C++,
+ backgroundcolor=\color{black!5}, % set backgroundcolor
+    basicstyle=\footnotesize,% basic font setting
+}
 
-%\usepackage[style=ieee]{biblatex} %iee referenzen
 
 
 
@@ -40,32 +47,265 @@
 
 \section{Einleitung}
 \subsection{Abstract}
+\textbf{Sortieralgorithmen sind heutzutage nicht mehr wegzudenken. Ihre Benutzung ist essentiell für die Verwaltung von vielen Dateien. Sichtbar für den Benutzer wird es z.B. auf Shopping Webseiten, auf welchem man gewisse Artikel nach Wunsch anordnen kann. Wie und welches Sortieralgorithmus hier verwendet wurde, bleibt dem Kunden unbewusst. Interessant für den Entwickler ist die Stabilität und die Schnelligkeit des Sortieralgorithmusses. 
+In dieser Seminararbeit werden wir uns auf ein Verfahren konzentrieren, mit dem die Laufzeit berechnet werden kann. Ebenso werden wir verschiedene Experimente durchführen, in dem wir unterschiedliche Testumgebungen(IDE) benutzen.
+Um einen Überblick zu erschaffen, müssen wir uns mit den zahlreichen Eigenschaften eines Sortieralgorithmusses bekanntlich machen. Im Quelltext wird nachgeforscht, ob zusätzlicher Speicher benötigt wird und ob dies die Performance beeinträchtigt.
+Die umfangreichen Versuche zeigen darauf, dass es keinen perfekten Sortieralgorithmus existiert. Wir veranschaulichen die Stärken und Schwächen der genannten Verfahren in unterschiedlichen Umgebungen.}
 \subsection{Leser Fangen}
 \subsection{Problem und Relevanz}
 
-\section{Hauptteil}
-\subsection{Grundlagen}
-\subsubsection{O-Notation}
-Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechnung anhand der gegebenen Eingabelänge n bestimmt. Dabei wird ein ungefähres Wachstumsverhalten des Algorithmus als mathematische Funktion definiert. Dies geschieht durch Analyse des Quellcodes und wird üblicherweise für drei Fälle durchgeführt: \\ \\
+%\section{Hauptteil}
+\section{Grundlagen}
+\subsection{O-Notation}
+Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechnung anhand der gegebenen Eingabelänge n bestimmt. Dabei wird ein ungefähres Wachstumsverhalten des Algorithmus als mathematische Funktion definiert. Dies geschieht durch Analyse des Quellcodes und wird üblicherweise für drei Fälle durchgeführt: \cite{ONotation}\\ \\
 \textbf {Worst-Case:} Es wird nach der maximalen Laufzeit des Algorithmus gesucht. Dies geschieht indem eine obere Schranke aufgestellt wird, über die die Laufzeit nicht steigt. Dieser Fall ist Sortieralgorithmus abhängig und kann nicht immer eine in umgekehrter Reihenfolge sortierte Liste sein.   \\
 \textbf {Best-Case:} Stellt die minimale Laufzeit da und wird durch eine untere Schranke realisiert. Auch hier fällt die Laufzeit nicht unter die Schranke. Der Best-Case ist nicht immer eine bereits aufsteigend sortierte Liste sein.\\
 \textbf {Average-Case:} Es wird eine durchschnittliche Laufzeit aufgestellt. \\ \\
-Ein Vorteil der Landau-Notation ist, dass sie komplett unabhängig von Hardware und Betriebssystem ist. Mit ihr kann man die Laufzeiten von Algorithmen miteinander vergleichen.
-Ein großer Nachteil ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern. Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
+\textbf{Vorteil der Landau-Notation} ist, dass sie komplett unabhängig von Hardware und Betriebssystem ist. Mit ihr kann man die Laufzeiten von Algorithmen miteinander vergleichen.
+Ein \textbf{großer Nachteil} ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern. Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
 
-\subsubsection{In-Place}
-Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der Tausch-Speicher der beim tausch zweier Werte benötigt wird.
-\subsubsection{Stabilität}
-Ein stabiler Algorithmus behält die Reihenfolge von äquivalenten Werten bei.
-\subsubsection{Heap/Stack Größe}
-\subsubsection{Testumgebung}
+\subsection{In-Place}
+Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der Tausch-Speicher der beim tausch zweier Werte benötigt wird. \cite{in-place}
+\subsection{Stabilität}
+Ein stabiler Algorithmus behält die Reihenfolge von äquivalenten Werten bei. Diese Eigenschaft ist bei Sortierung von Zahlen nicht relevant, aber sobald mehr Dateien damit zusammenhängen gewinnt diese Eigenschaft an relevanz. \cite{stability}
+%\subsection{Heap/Stack Größe}
+\subsection{Testumgebung}
 SSD vs HDD , CPU, Compiler, Sprache ...
 
 
-\subsection{Sortieralgorithmen}
+\section{Sortieralgorithmen}
 Vorstellungen von unterschiedlichen SA. min 5 bis (Textlimit erreicht ;D  ) 
-\subsubsection{Vorstellung}
-Im folgenden Abschnitt werden wir uns hauptsächlich die Sortieralgorithmen im Detail anschauen. Für unsere Recherche haben wir uns auf drei grundlegende Verfahren eingeschränkt: Bubblesort, Quicksort und Mergesort. Der wohl am häufigsten verwendete Sortieralgorithmus ist der Quicksort. Seine Entstehung blickt weit zurück bis in die 60er Jahre und seither wird der Quicksort von vielen Forschern untersucht. Einer seiner haupt Eigenschaften ist es, dass er in-place abläuft, also keinen weiteren Speicher benötigt, um die Sortierung durchzuführen. Der Grunde, wieso Quicksort so schnell ist, ist, dass seine innere Schleife sehr kurz ist und somit einfach optimiert werden kann. Für die Sortierung von n Elementen wird im Durchschnitt n log (n) Operationen erfordet. Der Nachteil des Algorithmus ist, dass er rekursiv ist, also im worst-case braucht er $n^{2}$  Operationen. Ausgehend von diesen Behauptungen aus dem Netz, werden wir Tests durchführen, um zu schauen, in welchen Gebieten oder unter welchen Umständen diese genannten Aussagen gelten.
+
+\subsection{BubbleSort}
+\subsubsection{Geschichte}
+\subsubsection{Pseudo-Code} \cite{bubbleSortCode}
+\begin{lstlisting}
+void bubbleSort(T liste[], int anzahl) {
+    boolean swapped;
+    for (int i = 1; i < anzahl; i++) {
+        bool swap = false;
+        for (int j = 0; j < anzahl - i; j++) { 
+            if (liste[j] > liste[j + 1]) {
+                	swap(j, j+1);
+                	swapped = true;}
+        }
+        if (!swapped) {
+            return;}
+}}
+\end{lstlisting} 
+Code von \cite{bubbleSortCode}.
+\subsubsection{Vorgehensweise}
+Idee: Größere Elemente steigen im Array nach rechts auf.\\ \\
+Der BubbleSort ist ein Algorithmus der mit zwei ineinander verschachtelten Schleifen arbeitet. Die äußere Schleife definiert bis zu welchem Punkt die innere Schleife läuft. Die innere Schleife vergleicht das aktuelle Element mit dem darauf folgenden, und falls das aktuelle größer ist, werden diese beiden Elemente vertauscht.\\
+Wenn die innere Schleife einen Durchlauf abgeschlossen hat, steht das größte Element am Ende und wird danach nicht mehr berücksichtigt. \\
+Eine Besonderheit wurde noch hinzugefügt, es wird in einem Schleifendurchlauf mittels „swapped“ kontrolliert ob getauscht wurde. Falls nicht getauscht wurde, ist die Liste schon fertig sortiert und der BubbleSort wird abgebrochen. Mit diesem Trick ist der Best-Case O(n) möglich. 
+
+%\begin{lstlisting}
+%Beispiel
+%4	3	5	1	2
+%3	4	1	2	5
+%3	1	2	4	5
+%1	2	3	4	5
+%1	2	3	4	5
+%break
+%\end{lstlisting}
+
+\subsubsection{Eigenschaften}
+\textbf{O-Notation:} Da bei einer bereits sortierten Liste keine vertauschungungen erfolgen , ist der BubbleSort nach einem Schleifendurchlauf fertig und beendet sich mit dem break. Beim Worst-Case werden beide Schleifen komplett durchlaufen was zu einer O-Notation von $n^{2}$ führt.
+\begin{table}
+\centering
+\begin{tabular}{lll}
+	\hline
+	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
+	\hline
+	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	\hline
+\end{tabular}
+\caption{O(Notation) des BubbleSorts}
+\label{tab:bubbleSort}
+\end{table}
+
+\textbf{Best-Case} Der Best-Case des BubbleSorts ist eine bereits sortierte Liste. Der Algorithmus geht die Liste einmal durch und merkt es wurde nicht getauscht. Es erfolgt ein \"break\". Die O-Notation ist deshalb O(n). \\
+\textbf{Worst-Case} Eine in falscher Reihenfolge sortierte Liste ist der Worst-Case des BubbleSorts. Da dadurch beide Schleifen komplett durchlaufen werden ist die O-Notation O($n^{2}$) \\
+\textbf{Stabilität} Da nur jeweils benachbarte Elemente mittels echt größer als verglichen und vertauscht werden, ist der BubbleSort ein stabiler Algorithmus \\
+
+\textbf{In-Place} Da der Algorithmus keine rekursiven aufrufe durchführt und lediglich zum vertauschen einen temporären Speicherplatz benötigt, arbeitet der Algorithmus mit O(1). \\
+
+
+
+
+\subsubsection{Testfälle}
+kommen bald!
+
+\subsection{InsertionSort}
+\subsubsection{Geschichte}
+\subsubsection{Pseudo-Code}
+\begin{lstlisting}
+void insertionSort(T arr[], int length) {
+    int i, j;
+    T tmp;
+    for (i = 1; i < length; i++) {
+        j = i;
+        while (j > 0 && arr[j - 1] > arr[j]) {
+            swap(j, j-1);
+            j--;
+        }
+    }
+}
+\end{lstlisting}
+Code von \cite{InsertionSortCode}
+
+\subsubsection{Vorgehensweise}
+Idee: Einsortieren von Elementen in eine bereits sortierte Liste. \\
+
+Der InsertionSort arbeitet wie der BubbleSort mit zwei ineinander verschachtelten Schleifen.Die Anzahl der Elemente ist am anfang auf 2 Elemente festgelegt. Bei jedem äußeren Durchlauf wird die größe des Arrays um eins erhöht, bis zu seiner maximal größe. Dadurch wird immer ein Element zur bereits sortierten Liste hinzugefügt und an die richtige stelle einsortiert. Die bereits sortierten Elemente werde falls nötig nach hinten verschoben.
+
+\subsubsection{Eigenschaften}
+\textbf{O-Notation:}
+\begin{table}
+\centering
+\begin{tabular}{lll}
+	\hline
+	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
+	\hline
+	O($n^{2}$) & O($n^{2}$) & O($n^{2}$) \\
+	\hline
+\end{tabular}
+\caption{O(Notation) des InsertionSorts}
+\label{tab:InsertioneSort}
+\end{table}
+
+\textbf{Best-Case} Der Best-Case des InsertionSorts ist eine bereits sortierte Liste. Da dann die Anzahl der verschiebungen null ist. Da die Äußere Schleife aber n mal aufgerufen wird und die innere auch ist hier die O-Notation O($n^{2}$). \\
+\textbf{Worst-Case} Eine falsch herum sortierte Liste ist der Worst-Case. Ähnlich wie beim Best-Case werden die Schleifen durchlaufen. Es wird aber bei jedem durchgang maximal verschoben. Auch hier ist die O-Notation O($n^{2}$).\\
+\textbf{Stabilität:}  Es werden nur benachbarte Elemente miteinander verschoben falls ein Element echt größer ist. Es werden außerdem nur Elemente von links in das Array eingefügt. Dadurch ist die Stabilität gegeben.\\
+
+\textbf{In-Place:}  Der Algorithmus arbeitet nur auf der übergebenden Liste. Es wird nur ein zusätzlicher Speicher für das Vertauschen benötigt deshalb ist der InsertionSort O(1).\\
+
+
+\subsubsection{Testfälle}
+
+\subsection{SelectionSort}
+\subsubsection{Geschichte}
+\subsubsection{Pseudo-Code}
+\begin{lstlisting}
+void selectionSort(T liste[], int anzahl) {
+    int k;
+    T temp;
+    for (int i = 0; i < anzahl; i++) {
+        k = i;
+        for (int j = i + 1; j < anzahl; j++) {
+            if (liste[j] < liste[k]) {
+                k = j;
+            }  }
+        swap(i,k)
+            }}
+\end{lstlisting}
+\subsubsection{Vorgehensweise}
+Idee: Suche das kleinste Element und stelle es nach vorne.
+\subsubsection{Eigenschaften}
+\textbf{O-Notation:}
+\begin{table}
+\centering
+\begin{tabular}{lll}
+	\hline
+	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
+	\hline
+	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	\hline
+\end{tabular}
+\caption{O(Notation) des InsertionSorts}
+\label{tab:InsertioneSort}
+\end{table}
+
+\textbf{Best-Case} Der Best-Case des . \\
+\textbf{Worst-Case} \\
+\textbf{Stabilität}  \\
+
+\textbf{In-Place}  \\
+\subsubsection{Testfälle}
+
+\subsection{MergeSort}
+\subsubsection{Geschichte}
+\subsubsection{Pseudo-Code}
+\subsubsection{Vorgehensweise}
+\subsubsection{Eigenschaften}
+\textbf{O-Notation:}
+\begin{table}
+\centering
+\begin{tabular}{lll}
+	\hline
+	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
+	\hline
+	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	\hline
+\end{tabular}
+\caption{O(Notation) des InsertionSorts}
+\label{tab:InsertioneSort}
+\end{table}
+
+\textbf{Best-Case} Der Best-Case des . \\
+\textbf{Worst-Case} \\
+\textbf{Stabilität}  \\
+
+\textbf{In-Place}  \\
+\subsubsection{Testfälle}
+
+\subsection{MergeSort}
+\subsubsection{Geschichte}
+\subsubsection{Pseudo-Code}
+\subsubsection{Vorgehensweise}
+\subsubsection{Eigenschaften}
+\textbf{O-Notation:}
+\begin{table}
+\centering
+\begin{tabular}{lll}
+	\hline
+	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
+	\hline
+	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	\hline
+\end{tabular}
+\caption{O(Notation) des InsertionSorts}
+\label{tab:InsertioneSort}
+\end{table}
+
+\textbf{Best-Case} Der Best-Case des . \\
+\textbf{Worst-Case} \\
+\textbf{Stabilität}  \\
+
+\textbf{In-Place}  \\
+\subsubsection{Testfälle}
+
+\subsection{HeapSort}
+\subsubsection{Geschichte}
+\subsubsection{Pseudo-Code}
+\subsubsection{Vorgehensweise}
+\subsubsection{Eigenschaften}
+\textbf{O-Notation:}
+\begin{table}
+\centering
+\begin{tabular}{lll}
+	\hline
+	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
+	\hline
+	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	\hline
+\end{tabular}
+\caption{O(Notation) des InsertionSorts}
+\label{tab:InsertioneSort}
+\end{table}
+
+\textbf{Best-Case} Der Best-Case des . \\
+\textbf{Worst-Case} \\
+\textbf{Stabilität}  \\
+
+\textbf{In-Place}  \\
+\subsubsection{Testfälle}
+
+%\subsubsection{Vorstellung}
+%Im folgenden Abschnitt werden wir uns hauptsächlich die Sortieralgorithmen im Detail anschauen. Für unsere Recherche haben wir uns auf drei grundlegende Verfahren eingeschränkt: Bubblesort, Quicksort und Mergesort. Der wohl am häufigsten verwendete Sortieralgorithmus ist der Quicksort. Seine Entstehung blickt weit zurück bis in die 60er Jahre und seither wird der Quicksort von vielen Forschern untersucht. Einer seiner haupt Eigenschaften ist es, dass er in-place abläuft, also keinen weiteren Speicher benötigt, um die Sortierung durchzuführen. Der Grunde, wieso Quicksort so schnell ist, ist, dass seine innere Schleife sehr kurz ist und somit einfach optimiert werden kann. Für die Sortierung von n Elementen wird im Durchschnitt n log (n) Operationen erfordet. Der Nachteil des Algorithmus ist, dass er rekursiv ist, also im worst-case braucht er $n^{2}$  Operationen. Ausgehend von diesen Behauptungen aus dem Netz, werden wir Tests durchführen, um zu schauen, in welchen Gebieten oder unter welchen Umständen diese genannten Aussagen gelten.
+
+
 \subsubsection{Pseudo Code}
 \subsubsection{Eigenschaften}
 Wie sind die O-Notation, In-Place, Stabilität zu diesem SA
@@ -85,15 +325,6 @@ In-Place, Stabilität, Speicherplatz ...
 \subsubsection{Fazit}
 \subsubsection{Anwendungstipps}
 
-
-
-\section{Literatur Alt}
-Sortieralgorithmen unter mathematischen Gesichtspunkten  \url {http://www.christian-rehn.de/wp-content/uploads/2009/08/Sortieralgorithmen.pdf} \\ \\
-Analysis and Testing of Sorting Algorithms on a Standard Dataset \url {http://ieeexplore.ieee.org/document/7280062/}\\ \\
-Rheinwerk OpenBook C von A bis Z \url {http://openbook.rheinwerk-verlag.de/c_von_a_bis_z} \\ \\
-Rheinwerk OpenBook Java ist auch eine Insel \url {http://openbook.rheinwerk-verlag.de/javainsel} \\ \\
-
-läuft das jetzt \cite{Rehn2006Sortieralgorithmen} wirklich?
 \section{Literaturverzeichnis}
 
 %\bibliography{mySA_Bib}
