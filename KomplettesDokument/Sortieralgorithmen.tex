@@ -62,7 +62,7 @@ Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechn
 \textbf {Best-Case:} Stellt die minimale Laufzeit da und wird durch eine untere Schranke realisiert. Auch hier fällt die Laufzeit nicht unter die Schranke. Der Best-Case ist nicht immer eine bereits aufsteigend sortierte Liste sein.\\
 \textbf {Average-Case:} Es wird eine durchschnittliche Laufzeit aufgestellt. \\ \\
 \textbf{Vorteil der Landau-Notation} ist, dass sie komplett unabhängig von Hardware und Betriebssystem ist. Mit ihr kann man die Laufzeiten von Algorithmen miteinander vergleichen.
-Ein \textbf{großer Nachteil} ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern. Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
+Ein \textbf{großer Nachteil} ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern.% Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
 
 \subsection{In-Place}
 Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der Tausch-Speicher der beim tausch zweier Werte benötigt wird. \cite{in-place}
@@ -74,11 +74,11 @@ SSD vs HDD , CPU, Compiler, Sprache ...
 
 
 \section{Sortieralgorithmen}
-Vorstellungen von unterschiedlichen SA. min 5 bis (Textlimit erreicht ;D  ) 
+
 
 \subsection{BubbleSort}
 \subsubsection{Geschichte}
-\subsubsection{Pseudo-Code} \cite{bubbleSortCode}
+\subsubsection{Pseudo-Code}
 \begin{lstlisting}
 void bubbleSort(T liste[], int anzahl) {
     boolean swapped;
@@ -100,19 +100,10 @@ Der BubbleSort ist ein Algorithmus der mit zwei ineinander verschachtelten Schle
 Wenn die innere Schleife einen Durchlauf abgeschlossen hat, steht das größte Element am Ende und wird danach nicht mehr berücksichtigt. \\
 Eine Besonderheit wurde noch hinzugefügt, es wird in einem Schleifendurchlauf mittels „swapped“ kontrolliert ob getauscht wurde. Falls nicht getauscht wurde, ist die Liste schon fertig sortiert und der BubbleSort wird abgebrochen. Mit diesem Trick ist der Best-Case O(n) möglich. 
 
-%\begin{lstlisting}
-%Beispiel
-%4	3	5	1	2
-%3	4	1	2	5
-%3	1	2	4	5
-%1	2	3	4	5
-%1	2	3	4	5
-%break
-%\end{lstlisting}
 
 \subsubsection{Eigenschaften}
 \textbf{O-Notation:} Da bei einer bereits sortierten Liste keine vertauschungungen erfolgen , ist der BubbleSort nach einem Schleifendurchlauf fertig und beendet sich mit dem break. Beim Worst-Case werden beide Schleifen komplett durchlaufen was zu einer O-Notation von $n^{2}$ führt.
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{lll}
 	\hline
@@ -121,7 +112,7 @@ Eine Besonderheit wurde noch hinzugefügt, es wird in einem Schleifendurchlauf m
 	O(n) & O($n^{2}$) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des BubbleSorts}
+\caption{O(Notation) des BubbleSorts \cite{ONotationen}}
 \label{tab:bubbleSort}
 \end{table}
 
@@ -135,7 +126,8 @@ Eine Besonderheit wurde noch hinzugefügt, es wird in einem Schleifendurchlauf m
 
 
 \subsubsection{Testfälle}
-kommen bald!
+%kommen bald!
+SOON TM
 
 \subsection{InsertionSort}
 \subsubsection{Geschichte}
@@ -162,17 +154,17 @@ Der InsertionSort arbeitet wie der BubbleSort mit zwei ineinander verschachtelte
 
 \subsubsection{Eigenschaften}
 \textbf{O-Notation:}
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{lll}
 	\hline
 	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
 	\hline
-	O($n^{2}$) & O($n^{2}$) & O($n^{2}$) \\
+	O(n) & O($n^{2}$) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des InsertionSorts}
-\label{tab:InsertioneSort}
+\caption{O(Notation) des InsertionSorts \cite{ONotationen}}
+\label{tab:InsertionSort}
 \end{table}
 
 \textbf{Best-Case} Der Best-Case des InsertionSorts ist eine bereits sortierte Liste. Da dann die Anzahl der verschiebungen null ist. Da die Äußere Schleife aber n mal aufgerufen wird und die innere auch ist hier die O-Notation O($n^{2}$). \\
@@ -183,7 +175,8 @@ Der InsertionSort arbeitet wie der BubbleSort mit zwei ineinander verschachtelte
 
 
 \subsubsection{Testfälle}
-
+%blargh
+SOON TM
 \subsection{SelectionSort}
 \subsubsection{Geschichte}
 \subsubsection{Pseudo-Code}
@@ -201,98 +194,127 @@ void selectionSort(T liste[], int anzahl) {
             }}
 \end{lstlisting}
 \subsubsection{Vorgehensweise}
-Idee: Suche das kleinste Element und stelle es nach vorne.
+Idee: Suche das kleinste Element und stelle es nach vorne. \\
+
+Mithilfe von zwei ineinander veschachtelter Schleifen wird der SelectionSort implementiert. Dabei wird das Array komplett durchlaufen um das kleinste Element darin zu finden. Danach wird das kleinste Element mit dem Element an der ersten Stelle vertauscht und der Startwert um 1 erhöht. Dies geschieht solange bis das Array schlussendlich sortiert wurde.
 \subsubsection{Eigenschaften}
 \textbf{O-Notation:}
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{lll}
 	\hline
 	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
 	\hline
-	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	O($n^{2}$) & O($n^{2}$) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des InsertionSorts}
-\label{tab:InsertioneSort}
+\caption{O(Notation) des SelectionSorts \cite{ONotationen}}
+\label{tab:SelectionSort}
 \end{table}
 
-\textbf{Best-Case} Der Best-Case des . \\
-\textbf{Worst-Case} \\
-\textbf{Stabilität}  \\
+\textbf{Best-Case} Der Best-Case ist eine bereits sortierte Liste, da in diesem fall nicht getauscht werden muss. Es wird aber bei jedem einzelnen Durchgang das Array komplett durchlaufen. \\
+\textbf{Worst-Case} Ähnlich wie beim Best-Case werden die Arrays jedesmal Durchlaufen. Es muss aber bei jedem Durchgang getauscht werden.\\
+\textbf{Stabilität:} Der SelectionSort ist kein Stabiler Algorithmus. Bei der Wahl des kleinsten Elements wird zwar die Stabilität gewährleistet, aber beim vertauschen wird das vorderste Element mit dem kleinsten vertauscht. Hier kann das vorderste hinter ein Element gebracht werden, was die gleiche größe besitzt.   \\
 
-\textbf{In-Place}  \\
+\textbf{In-Place:}  Der SelectionSort arbeitet auf dem Array und benötigt zusätzlich nur einen Tauschspeicher. Er hat deshalb einen Wert von O(1). \\
 \subsubsection{Testfälle}
+%soon
+SOON TM
 
 \subsection{MergeSort}
 \subsubsection{Geschichte}
 \subsubsection{Pseudo-Code}
+Sehr Groß
 \subsubsection{Vorgehensweise}
+Idee: Teile das Array in der mitte in zwei hälften bis das Array nur noch ein Element behält. Füge danach die teile wieder sortiert zusammen. \\
+
+Der MergeSort baut auf dem Teile und Hersche Prinzip auf. Er besteht aus zwei teilen:
+
+\textbf{MergeSort:} Das Array wird in der Mitte geteilt und danach wird der MergeSort Rekursiv für diese Teilmengen aufgerufen. Dies geschieht solange bis das übergebene Array genau die größe 1 besitzt. Es ist zu beachten das hier auf dem Array gearbeitet wird. Es werden nur neue Start und Endpunkte des Arrays übergeben. \\
+\textbf{Merge: } Sobald ein Teilbereich nicht mehr geteilt werden kann, werden diese Elemente wieder zusammengefügt. Dabei wird der Inhalt aus den beiden Teilarrays in temporäre Arrays gespeichert und dann der größe nach in das Ursprungsarray zurückgeschrieben. Die temporären Arrays werden danach wieder gelöscht. 
+
+
 \subsubsection{Eigenschaften}
 \textbf{O-Notation:}
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{lll}
 	\hline
 	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
 	\hline
-	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	O(n log n) & O(n log n) & O(n log n) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des InsertionSorts}
-\label{tab:InsertioneSort}
+\caption{O(Notation) des MergeSorts \cite{ONotationen}}
+\label{tab:MergeSort}
 \end{table}
 
-\textbf{Best-Case} Der Best-Case des . \\
-\textbf{Worst-Case} \\
-\textbf{Stabilität}  \\
+\textbf{Best-Case:} Der Best-Case ist eine bereits sortierte Liste. Der entscheidende Faktor ist das zusammenfügen. Es wird erst die linke hälfte mit der rechten hälfte verglichen und jeweils nur die linke hälfte wird einsortiert. Da nun keine Elemente in der Linken hälfte sind, kann nun der Inhalt der rechten hälfte ohne vergleiche in das Array zurückgeschriebenen werden.\\
+\textbf{Worst-Case:} Der Worst-Case ist eine Liste bei der immer abwechselnd ein Wert von der Linken hälfte und danach ein Wert von der Rechten hälfte einsortiert wird. Dadurch muss immer verglichen werden.\\
+\textbf{Stabilität:}  Der MergeSort ist ein Stabiler Sortieralgorithmus. Beim zusammenfügen wird das Linke Array mit kleiner gleich  mit dem Rechten Array verglichen. Dadurch werden die von der größe her gleichen Elemente im Linken Element bevorzugt. Es ist somit nicht möglich ein Element im linken zu überholen.\\
 
-\textbf{In-Place}  \\
+\textbf{In-Place:} Der MergeSort arbeitet nicht In-Place, da der Tauschspeicher jeweils zweimal die hälfte der Teilmengen ist. Da der Algorithmus von Unten nach Oben neue Arrays erstellt ist der zusätzliche Speicherplatz O(n).   \\
 \subsubsection{Testfälle}
-
-\subsection{MergeSort}
+%soon
+SOON TM
+\subsection{QuickSort}
 \subsubsection{Geschichte}
 \subsubsection{Pseudo-Code}
+Lang
 \subsubsection{Vorgehensweise}
+Idee: Finde Stellvertreter Element. Setze links vom Element alles was kleiner ist. Setze rechts alles was größer ist. Führe dies Rekursiv für linke und rechte hälfte aus.\\
+
+Der QuickSort baut auf dem Prinzip von Teile und Hersche auf. Er besteht aus zwei teilen:\\
+\textbf{Partition:} Es wird ein Stellvertreter Element aus der Liste ausgewählt. Dies kann: das erste Element, das letzte Element, das Element in der mitte oder der Median aus erstes, mitte und letztes sein.\\ Danach werden die Elemente die kleiner sind links davon und Elemente die größer sind rechts davon positioniert.\\
+\textbf{QuickSort:} Nun wird die linke hälfte davon und die rechte mit dem Pivot Rekursiv mit dem QuickSort wieder aufgerufen. Das Pivot wird in der rechten hälfte hinzugefügt, da es sein kann, dass das Pivot nicht an der richtigen stelle steht.
+
+
+
 \subsubsection{Eigenschaften}
 \textbf{O-Notation:}
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{lll}
 	\hline
 	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
 	\hline
-	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	O(n log n) & O(n log n) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des InsertionSorts}
-\label{tab:InsertioneSort}
+\caption{O(Notation) des QuickSorts \cite{ONotationen}}
+\label{tab:QuickSort}
 \end{table}
 
-\textbf{Best-Case} Der Best-Case des . \\
-\textbf{Worst-Case} \\
-\textbf{Stabilität}  \\
+\textbf{Best-Case:} Der Best-Case des QuickSorts ist Pivot abhängig. Das Pivot Element ist der Punkt wo das Array aufgeteilt wird. Man möchte deshalb das das Pivot Element in der mitte ist um eine aufteilung in zwei möglichst gleichgroße hälften zugewährleisten. \\
+\textbf{Worst-Case:} Der Worst-Case ist  $n^{2}$. Er entsteht wenn das Pivot Element jeweils das Erste oder Letzte Element ist. Dadurch wird vom Array immer nur ein Element abgezogen, was im endeffekt einem Sortieralgorithmus mit zwei ineinander verschachtelter Schleifen gleicht. \\
+\textbf{Stabilität:} Der QuickSort ist kein stabiler Sortieralgorithmus. Beim Anwenden von Partition werden die Elemente vertauscht und es kann vorkommen das gleiche Elemente beim kopieren die reihenfolge vertauschen. \\
 
-\textbf{In-Place}  \\
-\subsubsection{Testfälle}
-
+\textbf{In-Place:} Es wird auf dem Array gearbeitet. Der Speicherverbrauch ist O(1), wegen dem Tauschspeicher.  \\
+\subsubsection*{Testfälle}
+%SOON
+SOON TM
 \subsection{HeapSort}
-\subsubsection{Geschichte}
-\subsubsection{Pseudo-Code}
-\subsubsection{Vorgehensweise}
-\subsubsection{Eigenschaften}
+\subsubsection*{Geschichte}
+\subsubsection*{Pseudo-Code}
+\subsubsection*{Vorgehensweise}
+Idee: Erstellen eines Binärbaums. Größtes Element steht immer in der Wurzel. Stelle es an die letzte Stelle des Arrays und verringer die Arraygröße um eins. Führe dies rekursiv durch bis das Array sortiert ist.\\
+
+Der HeapSort besteht aus zwei Funktionen:\\
+\textbf{Heapify:} Mithilfe der Heapify Funktion wird das Array von unten nach oben durchwandert. Dabei wird das größte Element aus Knoten und derren Linken und Rechten Kind im Knoten gespeichert. \\
+\textbf{HeapSort:} Wenn Heapify abgeschlossen ist, steht das größte Element in der Wurzel. Nun wird dieses Element an die letzte stelle des Arrays kopiert und anschließend wird die größe des Arrays um eins verringert. Danach wird Heapify erneut aufgerufen.\\
+\subsubsection*{Eigenschaften}
 \textbf{O-Notation:}
-\begin{table}
+\begin{table}[h]
 \centering
 \begin{tabular}{lll}
 	\hline
 	\textbf{Best Case} & \textbf{Average Case} & \textbf{Worst Case} \\
 	\hline
-	O(n) & O($n^{2}$) & O($n^{2}$) \\
+	O(n log n) & O(n log n) & O(n log n) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des InsertionSorts}
-\label{tab:InsertioneSort}
+\caption{O(Notation) des HeapSorts \cite{ONotationen}}
+\label{tab:HeapSort}
 \end{table}
 
 \textbf{Best-Case} Der Best-Case des . \\
@@ -300,17 +322,17 @@ Idee: Suche das kleinste Element und stelle es nach vorne.
 \textbf{Stabilität}  \\
 
 \textbf{In-Place}  \\
-\subsubsection{Testfälle}
+\subsubsection*{Testfälle}
 
 %\subsubsection{Vorstellung}
 %Im folgenden Abschnitt werden wir uns hauptsächlich die Sortieralgorithmen im Detail anschauen. Für unsere Recherche haben wir uns auf drei grundlegende Verfahren eingeschränkt: Bubblesort, Quicksort und Mergesort. Der wohl am häufigsten verwendete Sortieralgorithmus ist der Quicksort. Seine Entstehung blickt weit zurück bis in die 60er Jahre und seither wird der Quicksort von vielen Forschern untersucht. Einer seiner haupt Eigenschaften ist es, dass er in-place abläuft, also keinen weiteren Speicher benötigt, um die Sortierung durchzuführen. Der Grunde, wieso Quicksort so schnell ist, ist, dass seine innere Schleife sehr kurz ist und somit einfach optimiert werden kann. Für die Sortierung von n Elementen wird im Durchschnitt n log (n) Operationen erfordet. Der Nachteil des Algorithmus ist, dass er rekursiv ist, also im worst-case braucht er $n^{2}$  Operationen. Ausgehend von diesen Behauptungen aus dem Netz, werden wir Tests durchführen, um zu schauen, in welchen Gebieten oder unter welchen Umständen diese genannten Aussagen gelten.
 
 
-\subsubsection{Pseudo Code}
-\subsubsection{Eigenschaften}
-Wie sind die O-Notation, In-Place, Stabilität zu diesem SA
-\subsubsection{Testfälle}
-Worst Case, Average Case, Best Case, nearly sorted, festplattenart, genug Speicher, zuwenig Speicher, unterschiedliche Datentypen - Integer versus Klassenobjekte
+%\subsubsection{Pseudo Code}
+%\subsubsection{Eigenschaften}
+%Wie sind die O-Notation, In-Place, Stabilität zu diesem SA
+%\subsubsection{Testfälle}
+%Worst Case, Average Case, Best Case, nearly sorted, festplattenart, genug Speicher, zuwenig Speicher, unterschiedliche Datentypen - Integer versus Klassenobjekte
 
 
 \subsection{Evaluierung}
