@@ -57,17 +57,17 @@ Die umfangreichen Versuche zeigen darauf, dass es keinen perfekten Sortieralgori
 %\section{Hauptteil}
 \section{Grundlagen}
 \subsection{O-Notation}
-Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechnung anhand der gegebenen Eingabelänge n bestimmt. Dabei wird ein ungefähres Wachstumsverhalten des Algorithmus als mathematische Funktion definiert. Dies geschieht durch Analyse des Quellcodes und wird üblicherweise für drei Fälle durchgeführt: \cite{ONotation}\\ \\
-\textbf {Worst-Case:} Es wird nach der maximalen Laufzeit des Algorithmus gesucht. Dies geschieht indem eine obere Schranke aufgestellt wird, über die die Laufzeit nicht steigt. Dieser Fall ist Sortieralgorithmus abhängig und kann nicht immer eine in umgekehrter Reihenfolge sortierte Liste sein.   \\
+Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechnung anhand der gegebenen Eingabelänge n bestimmt. Dabei wird ein ungefähres Wachstumsverhalten des Algorithmus als mathematische Funktion definiert. Dies geschieht durch Analyse des Quellcodes und wird üblicherweise für drei Fälle durchgeführt: \cite{monster2009buch,Rehn2006Sortieralgorithmen}\\ \\
+\textbf {Worst-Case:} Es wird nach der maximalen Laufzeit des Algorithmus gesucht. Dies geschieht indem eine obere Schranke aufgestellt wird, über die, die Laufzeit nicht steigt. Dieser Fall ist Sortieralgorithmus abhängig und kann nicht immer eine in falscher Reihenfolge sortierte Liste sein.   \\
 \textbf {Best-Case:} Stellt die minimale Laufzeit da und wird durch eine untere Schranke realisiert. Auch hier fällt die Laufzeit nicht unter die Schranke. Der Best-Case ist nicht immer eine bereits aufsteigend sortierte Liste sein.\\
 \textbf {Average-Case:} Es wird eine durchschnittliche Laufzeit aufgestellt. \\ \\
 \textbf{Vorteil der Landau-Notation} ist, dass sie komplett unabhängig von Hardware und Betriebssystem ist. Mit ihr kann man die Laufzeiten von Algorithmen miteinander vergleichen.\\
 \textbf{Ein großer Nachteil} ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern.% Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
 
 \subsection{In-Place}
-Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der zwischenspeicher der beim tausch zweier Werte benötigt wird. Wenn der Algorithmus nur das Array und diesen zwischenspeicher verwendet wird er als In-Place bezeichnet. \cite{in-place}
+Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der zwischenspeicher der beim tausch zweier Werte benötigt wird. Wenn der Algorithmus nur das Array und diesen zwischenspeicher verwendet wird er als In-Place bezeichnet. \cite{India2015Dataset}
 \subsection{Stabilität}
-Ein stabiler Algorithmus behält die Reihenfolge von äquivalenten Werten bei. Diese Eigenschaft ist bei Sortierung von Zahlen nicht relevant, aber sobald mehr Dateien damit zusammenhängen gewinnt diese Eigenschaft an relevanz. \cite{stability}
+Ein stabiler Algorithmus behält die Reihenfolge von äquivalenten Werten bei. Diese Eigenschaft ist bei Sortierung von Zahlen nicht relevant, aber sobald mehr Dateien damit zusammenhängen gewinnt diese Eigenschaft an relevanz. \cite{Rehn2006Sortieralgorithmen,India2015Dataset}
 %\subsection{Heap/Stack Größe}
 \subsection{Testumgebung}
 Die Tests wurden auf einem Intel I5 Prozessor mit einer Taktfrequenz von 2,5 GHz ausgeführt. Zur Implementierung der Sortieralgorithmen wurde die Sprache C++, mithilfe der Entwicklungsumgebung Netbeans 8.2 mit dem GCC Compiler 4.9.3, benutzt.
@@ -120,7 +120,7 @@ Eine Besonderheit wurde noch hinzugefügt, es wird in einem Schleifendurchlauf m
 	O(n) & O($n^{2}$) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des BubbleSorts \cite{ONotationen}}
+\caption{O(Notation) des BubbleSorts \cite{India2015Dataset}}
 \label{tab:bubbleSort}
 \end{table}
 \\\textbf{Best-Case} Der Best-Case des BubbleSorts ist eine bereits sortierte Liste. Der Algorithmus geht die Liste einmal durch und merkt es wurde nicht getauscht. Es erfolgt ein \"break\". Die O-Notation ist deshalb O(n).\\
@@ -165,7 +165,7 @@ Der InsertionSort arbeitet wie der BubbleSort mit zwei ineinander verschachtelte
 	O(n) & O($n^{2}$) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des InsertionSorts \cite{ONotationen}}
+\caption{O(Notation) des InsertionSorts \cite{India2015Dataset}}
 \label{tab:InsertionSort}
 \end{table}
 \\
@@ -208,7 +208,7 @@ Mithilfe von zwei ineinander veschachtelter Schleifen wird der SelectionSort imp
 	O($n^{2}$) & O($n^{2}$) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des SelectionSorts \cite{ONotationen}}
+\caption{O(Notation) des SelectionSorts \cite{India2015Dataset}}
 \label{tab:SelectionSort}
 \end{table}
 \\
@@ -245,7 +245,7 @@ Der MergeSort baut auf dem Teile und Hersche Prinzip auf. Er besteht aus zwei te
 	O(n log n) & O(n log n) & O(n log n) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des MergeSorts \cite{ONotationen}}
+\caption{O(Notation) des MergeSorts \cite{India2015Dataset}}
 \label{tab:MergeSort}
 \end{table}
 \\
@@ -280,7 +280,7 @@ Der QuickSort baut auf dem Prinzip von Teile und Hersche auf. Er besteht aus zwe
 	O(n log n) & O(n log n) & O($n^{2}$) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des QuickSorts \cite{ONotationen}}
+\caption{O(Notation) des QuickSorts \cite{India2015Dataset}}
 \label{tab:QuickSort}
 \end{table}
 \\
@@ -312,7 +312,7 @@ Der HeapSort besteht aus zwei Funktionen:\\\\
 	O(n log n) & O(n log n) & O(n log n) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) des HeapSorts \cite{ONotationen}}
+\caption{O(Notation) des HeapSorts \cite{India2015Dataset}}
 \label{tab:HeapSort}
 \end{table}
 \\
@@ -341,7 +341,7 @@ Zum Einstieg in die Evaluation betrachten wir erst einmal die unterschiedlichen 
 \begin{figure} [h]
 \centering
 \includegraphics [width=\linewidth]{OWachstum.JPG} \label{fig:WachstumONotation}
-\caption{Überblick der einzelnen Funktionen und derren Verlauf \cite{bild2006rehn}}
+\caption{Überblick der einzelnen Funktionen und derren Verlauf \cite{Rehn2006Sortieralgorithmen}}
 \end{figure}
 Es wird sofort deutlich, dass die lineare und die n log n Funktionen ein deutlich niedrigeres Wachstum besitzen als die quadratische. 
 
@@ -359,15 +359,16 @@ QuickSort & O(n log n) & O(n log n) & O($n^{2}$) \\
 HeapSort & O(n log n) & O(n log n) & O(n log n) \\
 	\hline
 \end{tabular}
-\caption{O(Notation) der vorgestellten Algorithmen \cite{ONotationen}}
+\caption{O(Notation) der vorgestellten Algorithmen \cite{India2015Dataset}}
 \label{tab:HeapSort}
 \end{table}
 Nun wäre es aber fahrlässig nur ahand der O-Notation einen Algorithmus auszuwählen. Denn wie im Kapitel zur O-Notation bereits erwähnt, werden konstanten entfernt.  
 
 \subsubsection{Testfälle}
-Um die Algorithmen untereinander zu vergleichen wurden einige Testfälle definiert.\\
+Um die Algorithmen untereinander zu vergleichen wurden einige Testfälle definiert.\\ 
+Die Code Grundlagen zu den Algorithmen wurden von folgenden Seiten entnommen: \cite{bubbleSortCode,selectionSortCode,insertionSortCode,mergeSortCode,quickSortCode,heapSortCode}\\\\
 
-\textbf{Zufalls-Werte:} Den einzelnen Algorithmen wurden die glechen Zufallszahlen übergeben und die Zeit gemessen bis diese die Liste sortiert haben.
+\textbf{Zufalls-Werte:} Den einzelnen Algorithmen wurden die glechen Zufallszahlen übergeben und die Zeit gemessen bis diese die Liste sortiert haben. Es wurden Arrays mit der größe von 100.000 Elementen übergeben
 \begin{table}[h]
 \centering
 \begin{tabular}{llllll}
@@ -383,7 +384,7 @@ Um die Algorithmen untereinander zu vergleichen wurden einige Testfälle definie
 \\An diesem Test erkennt man relativ schnell das die logarithmischen Algorithmen einen riesigen Vorteil gegenüber den quadratischen Algorithmen besitzen wenn es um zufällig sortierte Listen geht.\\
 
 
-\textbf{Sortierte:} Es wird eine bereits sortierte Liste den einzelnen Sortieralgorithmen übergeben. Dies ist der Best-Case vom BubbleSort , InsertionSort, QuickSort(mit Pivot Element in der Mitte) und dem MergeSort.
+\textbf{Sortierte:} Es wird eine bereits sortierte Liste den einzelnen Sortieralgorithmen übergeben. Dies ist der Best-Case vom BubbleSort , InsertionSort, QuickSort(mit Pivot Element in der Mitte) und dem MergeSort.\\
 \begin{table}[h]
 \centering
 \begin{tabular}{llllll}
@@ -397,7 +398,7 @@ $<1$ & 14640,6 & $<1$ & 6,4 & 31,2 & 34 \\
 \label{tab:sorted}
 \end{table}
 %
-\\An diesem Beispiel erkennt man die stärke von O(n) im vergleich zu Logarithmischen Algorithmen. Der QuickSort muss keine vertauschungen durchführen weswegen er
+\\An diesem Testfalll erkennt man die stärke von O(n) im vergleich zu Logarithmischen Algorithmen.\\
 
 \textbf{Absteigend Sortiert:} Den Algorithmen wird eine absteigend Sortierte Liste übergeben. Dies ist der Worst-Case des BubbleSorts, InsertionSort und SelectionSorts.
 \begin{table}[h]
@@ -412,14 +413,83 @@ $<1$ & 14640,6 & $<1$ & 6,4 & 31,2 & 34 \\
 \caption{Ergebnisse von abgsteigend Sortierter Liste in Milisekunden(Durchschnittswerte)}
 \label{tab:inverseSorted}
 \end{table}
-\\ %testfehlt
 
+
+\textbf{sortiert aber letztes Element ist kleinstes:} Es wird eine aufsteigend sortierte Liste, mit der besonderheit, das dass letzte Element das kleinste ist, den Algorithmen übergeben.\\
+\begin{table}[h]
+\centering
+\begin{tabular}{llllll}
+\hline
+\textbf{BubbleSort} & \textbf{SelectionSort} & \textbf{InsertionSort} & \textbf{QuickSort} & \textbf{MergeSort} & \textbf{HeapSort}  \\
+\hline
+13956,4 & 14553,6 & $<1$ & $<1$ & 34,4 & 31 \\
+\hline
+\end{tabular}
+\caption{Ergebnisse von abgsteigend Sortierter Liste mit letztes kleinstes in Milisekunden(Durchschnittswerte)}
+\label{tab:inverseSortedplus1}
+\end{table}
+
+An diesem Test erkennt man, dass der BubbleSort in jedem durchgang nur einen tausch durchführen muss, während der SelectionSort in jedem durchgang tauschen muss. Dies erklärt warum der BubbleSort schneller ist.
+
+\textbf{Testfälle mit den Logarithmischen Sortieralgorithmen:} Da die Ergebnisse der Logarithmischen Tests relativ klein ausfallen, erhöhen wir die Anzahl der Elemente auf 1.000.000.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\hline
+\textbf{Testfall} & \textbf{QuickSort} & \textbf{MergeSort} & \textbf{HeapSort} \\
+\hline
+ \textbf{Zufall} & 159,2 & 425 & 515,4 \\
+\textbf{aufsteigend} & 62,6 & 325 & 390,5 \\
+\textbf{absteigend} & 63 & 355,6 & 415,4 \\
+\textbf{sortiert, ende klein} & 59,8 & 325 & 387,4 \\
+\hline
+\end{tabular}
+\caption{Testfälle mit 1.000.000 Elemente in Milisekunden(Durchschnittswerte) }
+\label{tab:logaTests}
+\end{table}
+
+\textbf{Worst-Case QuickSort:} Da der QuickSort in keinen bisherigen Testfällen negativ aufgefallen ist, benötigen wir einen spezial Testfall für den Worst-Case des QuickSorts. Der Worst-Case des QuickSorts tritt ein wenn das Pivot Element das kleinste, oder größte Element ist. Da unser Pivot Element in den bisherigen Testfällen immer das Element in der Mitte war, ändern wir für diesen Test die Pivotwahl. Wir wählen immer das erste Element in der Liste und als Array übergeben wir eine absteigend sortierte Liste.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llll}
+\hline
+\textbf{BubbleSort} & \textbf{QuickSort} & \textbf{Selection} & \textbf{Insertion} \\
+\hline
+ 465,6 & 218,8 & 137,4 & 259,2 \\
+\hline
+\end{tabular}
+\caption{Testfälle mit 10.000 Elemente in Milisekunden(Durchschnittswerte) }
+\label{tab:WC_QS}
+\end{table}
+
+Die Ergebnisse zeigen, dass der QuickSort im Worst-Case ungefähr gleichauf mit dem InsertionSort ist.
 
 
 \subsubsection{Vergleich der Ergebnisse}
+
+\textbf{BubbleSort:} Der BubbleSort ist wohl einer der am einfachsten zu verstehenden Algorithmen und er bietet weiterhin auch Stabilität und hat einen In-Place Wert von O(1). Das sind leider auch die einzelnen Vorteile dieses Algorithmus. Er benötigt im vergleich zu anderen  $n^{2}$ Algorithmen in einigen Tests um den Faktor zwei mehr Zeit. Weiterhin tritt der Best-Case zu selten ein um wirklich relevant zu sein. Er dient heute hauptsächlich nur dem Einstieg in Sortieralgorithmen und sollte wirklich nur zu lernzwecken verwendet werden.\\
+
+\textbf{SelectionSort:} Der SelectionSort besitzt immer eine Laufzeit von O($n^{2}$) was ihn von der O-Notation zum schlechtesten Algorithmus macht. Er liefert aber immer eine konstante Laufzeit und ein großer Vorteil ist, dass die Anzahl der Vertauschungen maximal n sind, da in jedem inneren Schleifen durchlauf nur ein einziges mal getauscht wird. \\
+
+\textbf{InsertionSort:} Der InsertionSort bietet Stabilität und besitzt einen In-Place Wert von O(1). Im vergleich zum BubbleSort ist der InsertionSort in allen bereichen überlegen.\\
+
+\textbf{MegeSort:} Der MergeSort ist der einzige hier vorgestellte Algorithmus der mit einer Laufzeit von O(n log n) die Stabilität der Eingabe gewährt und sollte, falls man die Stabilität benötigt, gewählt werden.  Ein großes Problem ist aber der zusätzliche Speicherbedarf von O(n). Dies bedeutet das für eine Liste von zum Beispiel 2GB noch zusätzlich 2GB benötigt werden.\\
+
+\textbf{HeapSort:} Der HeapSort liefert konstante Ergebnisse, die leicht schlechter sind als beim MergeSort. Er achtet nicht auf die Stabilität, arbeitet dafür aber In-Place mit O(1).\\
+
+\textbf{QuickSort:} Der QuickSort schneidet in useren Testfällen am besten ab. Dies erklärt sich dadurch, das der Worst-Case so gut wie nie auftritt. Das Hauptproblem des QuickSorts ist aber die Wahl des Pivot Element, da links und rechts davon jeweils abgeschnitten wird. Am Worst-Case Testfall haben wir das Pivot als erstes Element der Liste gewählt und eine sortierte Liste übergeben. Dies hat dazu geführt, dass in jedem rekursiven Aufruf nur ein Element von der Liste abgeschnitten wurde. Dies bedeutet das auf dem Stack die Funktion n mal liegt. Bei zu großen Eingaben kann dies zu einem Stackoverflow führen. \\
+
+
+
+%Die Ergebnisse zeigen das Sortieralgorithmen, die einen Worst-Case von $n^{2}$ besitzen, einen viel zu großen Zeitaufwand benötigen um ihre Sortierarbeit bei großen Eingaben zu verichten. 
+
+
+
 \subsubsection{Relevanz der O-Notation}
-\subsubsection{Wie wichtig sind weitere Kriterien}
-In-Place, Stabilität, Speicherplatz ...
+Anhand der Testfälle erkennt man, das die O-Notation keine genaue vergleiche zwischen Sortieralgorithmen zulässt. Das ist aber auch nicht ihr Sinn. Mithilfe der O-Notation ist es relativ einfach Algorithmen in eine Laufzeitspalte einzuordnen um ein Feedback zu dessen Laufzeit zu bekommen. Danach kann man sich mit der richtigen Laufzeit im vergleich zu anderen Algorithmen auseinandersetzen.
+
 
 \section{Schluss}
 %\subsection{Fazit}
