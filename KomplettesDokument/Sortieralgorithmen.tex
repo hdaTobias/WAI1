@@ -47,13 +47,12 @@ language = C++,
 
 \section{Einleitung}
 \subsection{Abstract}
-\textbf{Sortieralgorithmen sind heutzutage nicht mehr wegzudenken. Ihre Benutzung ist essentiell für die Verwaltung von vielen Dateien. Sichtbar für den Benutzer wird es z.B. auf Shopping Webseiten, auf welchem man gewisse Artikel nach Wunsch anordnen kann. Wie und welches Sortieralgorithmus hier verwendet wurde, bleibt dem Kunden unbewusst. Interessant für den Entwickler ist die Stabilität und die Schnelligkeit des Sortieralgorithmusses. 
-In dieser Seminararbeit werden wir uns auf ein Verfahren konzentrieren, mit dem die Laufzeit berechnet werden kann. Ebenso werden wir verschiedene Experimente durchführen, in dem wir unterschiedliche Testumgebungen(IDE) benutzen.
-Um einen Überblick zu erschaffen, müssen wir uns mit den zahlreichen Eigenschaften eines Sortieralgorithmusses bekanntlich machen. Im Quelltext wird nachgeforscht, ob zusätzlicher Speicher benötigt wird und ob dies die Performance beeinträchtigt.
-Die umfangreichen Versuche zeigen darauf, dass es keinen perfekten Sortieralgorithmus existiert. Wir veranschaulichen die Stärken und Schwächen der genannten Verfahren in unterschiedlichen Umgebungen.}
-\subsection{Leser Fangen}
+\textbf{Sortieralgorithmen sind heutzutage nicht mehr wegzudenken. Ihre Benutzung ist essentiell für die Verwaltung von vielen Dateien. Sichtbar für den Benutzer wird es z.B. auf Shopping Webseiten, auf welchem man gewisse Artikel nach Wunsch anordnen kann. Wie und welches Sortieralgorithmus hier verwendet wurde, bleibt dem Kunden unbewusst. Interessant für den Entwickler ist die Stabilität und die Schnelligkeit des Sortieralgorithmusses. Diese Seminararbeit konzentriert sich auf 6 populäre Sortierverfahren, welche durch Testfälle unter die Lupe genommen werden. In dieser Seminararbeit werden wir uns auf ein Verfahren konzentrieren, mit dem die Laufzeit berechnet werden kann. Um einen Überblick zu erschaffen, müssen wir uns mit den zahlreichen Eigenschaften eines Sortierverfahrens bekanntlich machen. Im Quelltext wird nachgeforscht, ob zusätzlicher Speicher benötigt wird, wie der Best-Case und Worst-Case aussieht und ob die Stabilität der eingabe gegeben ist .\\
+%Die Ergebnisse zeigen, dass der BubbleSort, InsertionSort und der SelectionSort im Durchschnitt eine Laufzeit von O($n^{2}$ ) besitzen. Auf der anderen Seite haben der MergeSort, QuickSort und HeapSort mit einer Durchschnittslaufzeit von O(n log n) besser abgeschnitten.
+Die umfangreichen Versuche zeigen, dass es keinen perfekten Sortieralgorithmus existiert. Wir veranschaulichen die Stärken und Schwächen der genannten Verfahren in unterschiedlichen Umgebungen.}
+%\subsection{Leser Fangen}
 \subsection{Problem und Relevanz}
-
+Das Sortieren von Gegenständen aus der realen Welt oder Elementen aus der virtuellen Welt baut auf die Prozedur des immer sich wiederholenden Akts der Verschiebung oder der Austauschung auf, bis der gewünschte, sortierte Zustand erreicht ist. Hierum handelt es sich um das Ordnen einer Arbeitsumgebung, sei es eine Liste von Zahlen auf dem Rechner, oder der Schreibtisch im eigenen Zimmer. Der Grund, weshalb eine Sortierung überhaupt an erster Stelle ausgeführt wird, bezweckt das leichtere und schnellere Finden von gesuchten Objekten. Ein Stift lässt sich leichter auf einem geordnetem Tisch finden als auf einem ungeordnetem. Mit der Entstehung einer Sortiermethode war es lange nicht getan, denn es leidete an der Performanz der früheren Sortierverfahren. Somit bemühten sich Forscher, immer schnellere und effizientere Sortiermethodiken zu entwickeln. Nun sind wir an einen Zustand gelangt, in wessen die Sortieralgorithmen schon sehr weit entwickelt sind. In dieser Arbeitet werden populäre Sortieralgorithmen in Betracht gezogen, die in verschiedenen Testfällen gezogen werden, um deren Stärken und Schwächen aufzuzeigen. 
 %\section{Hauptteil}
 \section{Grundlagen}
 \subsection{O-Notation}
@@ -65,7 +64,7 @@ Mithilfe der O-Notation, auch Landau-Notation gennant, wird eine Laufzeitberechn
 \textbf{Ein großer Nachteil} ist das die Funktionen nur angenähert sind und so nur eine grobe Einschätzung liefern.% Weiterhin existiert keine Berücksichtigung auf Speicher Allokationen oder Zeitdauer von  rekursive aufrufe.
 
 \subsection{In-Place}
-Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Speicherplatz benötigt oder nicht. Eine Ausnahme ist der zwischenspeicher der beim tausch zweier Werte benötigt wird. Wenn der Algorithmus nur das Array und diesen zwischenspeicher verwendet wird er als In-Place bezeichnet. \cite{India2015Dataset}
+Diese Eigenschaft beschreibt ob der Algorithmus neben der zu sortierenden Liste noch weiteren Hilfsspeicherplatz benötigt oder nicht \cite{India2015Dataset}. Wenn der Algorithmus auf dem Array arbeitet und nur einen zwischenspeicher benötigt wird er als In-Place bezeichnet. 
 \subsection{Stabilität}
 Ein stabiler Algorithmus behält die Reihenfolge von äquivalenten Werten bei. Diese Eigenschaft ist bei Sortierung von Zahlen nicht relevant, aber sobald mehr Dateien damit zusammenhängen gewinnt diese Eigenschaft an relevanz. \cite{Rehn2006Sortieralgorithmen,India2015Dataset}
 %\subsection{Heap/Stack Größe}
@@ -126,7 +125,7 @@ Eine Besonderheit wurde noch hinzugefügt, es wird in einem Schleifendurchlauf m
 \\\textbf{Best-Case} Der Best-Case des BubbleSorts ist eine bereits sortierte Liste. Der Algorithmus geht die Liste einmal durch und merkt es wurde nicht getauscht. Es erfolgt ein \"break\". Die O-Notation ist deshalb O(n).\\
 \textbf{Worst-Case} Eine in falscher Reihenfolge sortierte Liste ist der Worst-Case des BubbleSorts. Da dadurch beide Schleifen komplett durchlaufen werden ist die O-Notation O($n^{2}$). \\ \\
 \textbf{Stabilität} Da nur jeweils benachbarte Elemente mittels echt größer als verglichen und vertauscht werden, ist der BubbleSort ein stabiler Algorithmus \\ \\
-\textbf{In-Place} Da der Algorithmus keine rekursiven aufrufe durchführt und lediglich zum vertauschen einen temporären Speicherplatz benötigt, arbeitet der Algorithmus mit O(1). \\
+\textbf{In-Place} Da der Algorithmus keine rekursiven aufrufe durchführt und lediglich zum vertauschen einen temporären Speicherplatz benötigt, arbeitet der Algorithmus mit In-Place und der Hilfsspeicher ist O(1). \cite{India2015Dataset}\\
 
 
 
@@ -172,7 +171,7 @@ Der InsertionSort arbeitet wie der BubbleSort mit zwei ineinander verschachtelte
 \textbf{Best-Case} Der Best-Case des InsertionSorts ist eine bereits sortierte Liste. Da dann die Anzahl der verschiebungen null ist. Da die Äußere Schleife aber n mal aufgerufen wird und die innere auch ist hier die O-Notation O($n^{2}$). \\
 \textbf{Worst-Case} Eine falsch herum sortierte Liste ist der Worst-Case. Ähnlich wie beim Best-Case werden die Schleifen durchlaufen. Es wird aber bei jedem durchgang maximal verschoben. Auch hier ist die O-Notation O($n^{2}$).\\ \\
 \textbf{Stabilität:}  Es werden nur benachbarte Elemente miteinander verschoben falls ein Element echt größer ist. Es werden außerdem nur Elemente von links in das Array eingefügt. Dadurch ist die Stabilität gegeben.\\ \\
-\textbf{In-Place:}  Der Algorithmus arbeitet nur auf der übergebenden Liste. Es wird nur ein zusätzlicher Speicher für das Vertauschen benötigt deshalb ist der InsertionSort O(1).\\
+\textbf{In-Place:}  Der Algorithmus arbeitet nur auf der übergebenden Liste. Es wird nur ein zusätzlicher Speicher für das Vertauschen benötigt deshalb ist der InsertionSort In-Place und benötigt  O(1) Hilfsspeicher. \cite{India2015Dataset}\\
 
 
 %\subsubsection{Testfälle}
@@ -216,7 +215,7 @@ Mithilfe von zwei ineinander veschachtelter Schleifen wird der SelectionSort imp
 \textbf{Worst-Case} Ähnlich wie beim Best-Case werden die Arrays jedesmal Durchlaufen. Es muss aber bei jedem Durchgang getauscht werden.\\ \\
 \textbf{Stabilität:} Der SelectionSort ist kein Stabiler Algorithmus. Bei der Wahl des kleinsten Elements wird zwar die Stabilität gewährleistet, aber beim vertauschen wird das vorderste Element mit dem kleinsten vertauscht. Hier kann das vorderste hinter ein Element gebracht werden, was die gleiche größe besitzt.   \\
 \\
-\textbf{In-Place:}  Der SelectionSort arbeitet auf dem Array und benötigt zusätzlich nur einen Tauschspeicher. Er hat deshalb einen Wert von O(1). \\
+\textbf{In-Place:}  Der SelectionSort arbeitet auf dem Array und benötigt zusätzlich nur einen Tauschspeicher weswegen er In-Place ist. Er benötigt Hilfspeicher von O(1) \cite{India2015Dataset}. \\
 %\subsubsection{Testfälle}
 %soon
 %SOON TM
@@ -258,18 +257,18 @@ Der MergeSort baut auf dem Teile und Hersche Prinzip auf. Er besteht aus zwei te
 %soon
 %SOON TM
 \subsection{QuickSort}
-\subsubsection*{Geschichte}
+\subsubsection{Geschichte}
 %\subsubsection*{Pseudo-Code}
-\subsubsection*{Vorgehensweise}
+\subsubsection{Vorgehensweise}
 Idee: Finde Stellvertreter Element. Setze links vom Element alles was kleiner ist. Setze rechts alles was größer ist. Führe dies Rekursiv für linke und rechte hälfte aus.\\
 \\
 Der QuickSort baut auf dem Prinzip von Teile und Hersche auf. Er besteht aus zwei teilen:\\ \\
-\textbf{Partition:} Es wird ein Stellvertreter Element aus der Liste ausgewählt. Dies kann: das erste Element, das letzte Element, das Element in der mitte oder der Median aus erstes, mitte und letztes sein.\\ Danach werden die Elemente die kleiner sind links davon und Elemente die größer sind rechts davon positioniert.\\
+\textbf{Partition:} Es wird ein Stellvertreter Element aus der Liste ausgewählt. Dies kann: das erste Element, das letzte Element, das Element in der mitte oder der Median aus erstes, mitte und letztes sein \cite{sedgewick1978pivot}.\\ Danach werden die Elemente die kleiner sind links davon und Elemente die größer sind rechts davon positioniert.\\
 \textbf{QuickSort:} Nun wird die linke und rechte hälfte rekursiv mit dem QuickSort wieder aufgerufen. %Das Pivot wird in der rechten hälfte hinzugefügt, da es sein kann, dass das Pivot nicht an der richtigen stelle steht.
 
 
 
-\subsubsection*{Eigenschaften}
+\subsubsection{Eigenschaften}
 \textbf{O-Notation:}
 \begin{table}[h]
 \centering
@@ -288,7 +287,7 @@ Der QuickSort baut auf dem Prinzip von Teile und Hersche auf. Er besteht aus zwe
 \textbf{Worst-Case:} Der Worst-Case ist  $n^{2}$. Er entsteht wenn das Pivot Element jeweils das Erste oder Letzte Element ist. Dadurch wird vom Array immer nur ein Element abgezogen, was im endeffekt einem Sortieralgorithmus mit zwei ineinander verschachtelter Schleifen gleicht.\\ \\
 \textbf{Stabilität:} Der QuickSort ist kein stabiler Sortieralgorithmus. Beim Anwenden von Partition werden die Elemente vertauscht und es kann vorkommen das gleiche Elemente beim kopieren die reihenfolge vertauschen. \\
 \\
-\textbf{In-Place:} Es wird auf dem Array gearbeitet. Der Speicherverbrauch ist O(1), wegen dem Tauschspeicher.  \\
+\textbf{In-Place:} Es wird auf dem Array gearbeitet weswegen der Algorithmus In-Place arbeitet. Der Hilfsspeicher ist im Worst-Case O(n), da durch die rekursiven Aufrufe von QuickSort zusätzlicher Platz auf dem Stack benötigt wird.\cite{sedgewick1978pivot}  \\
 %\subsubsection*{Testfälle}
 %SOON
 %SOON TM
@@ -320,7 +319,7 @@ Der HeapSort besteht aus zwei Funktionen:\\\\
 \textbf{Worst-Case:} Der Worst-Case wird durch maximale vertauschungen beim ausführen der Heapify Funktion. \\\\
 \textbf{Stabilität:} Da Beim vertauschen das Element in der Wurzel mit dem letzten vertauscht wird, kann es dadurch zu instabilen vertauschungen kommen.  \\
 \\
-\textbf{In-Place:} Das Array wird intern zu einem Binärbaum auf dem dann sortiert wird. Diese Umformung wird nur mathematisch durchgeführt wodurch kein zusätzlicher Speicherplatz benötigt wird. Es wird zum vertauschen aber ein temporärer zwischenspeicher benötigt. \\
+\textbf{In-Place:} Das Array wird intern zu einem Binärbaum auf dem dann sortiert wird. Diese Umformung wird nur mathematisch durchgeführt wodurch kein zusätzlicher Speicherplatz benötigt wird. Es wird zum vertauschen aber ein temporärer zwischenspeicher benötigt. \\Der HeapSort arbeitet In-Place und hat einen Hilfsspeicherwert von O(1) \cite{India2015Dataset}.\\
 %\subsubsection*{Testfälle}
 
 %\subsubsection{Vorstellung}
@@ -464,18 +463,18 @@ An diesem Test erkennt man, dass der BubbleSort in jedem durchgang nur einen tau
 \label{tab:WC_QS}
 \end{table}
 
-Die Ergebnisse zeigen, dass der QuickSort im Worst-Case ungefähr gleichauf mit dem InsertionSort ist.
+Die Ergebnisse zeigen, dass der QuickSort im Worst-Case ungefähr gleichauf mit dem InsertionSort ist. Es ist aber zu beachten, dass der QuickSort nur wenige Vertauschungen durchgeführt hat und das dies der Worst-Case des InsertionSorts ist.
 
 
 \subsubsection{Vergleich der Ergebnisse}
 
-\textbf{BubbleSort:} Der BubbleSort ist wohl einer der am einfachsten zu verstehenden Algorithmen und er bietet weiterhin auch Stabilität und hat einen In-Place Wert von O(1). Das sind leider auch die einzelnen Vorteile dieses Algorithmus. Er benötigt im vergleich zu anderen  $n^{2}$ Algorithmen in einigen Tests um den Faktor zwei mehr Zeit. Weiterhin tritt der Best-Case zu selten ein um wirklich relevant zu sein. Er dient heute hauptsächlich nur dem Einstieg in Sortieralgorithmen und sollte wirklich nur zu lernzwecken verwendet werden.\\
+\textbf{BubbleSort:} Der BubbleSort ist wohl einer der am einfachsten zu verstehenden Algorithmen und er bietet weiterhin auch Stabilität und arbeitet In-Place. Das sind leider auch die einzigen Vorteile dieses Algorithmus. Er benötigt im vergleich zu anderen  $n^{2}$ Algorithmen in einigen Tests um den Faktor zwei mehr Zeit. Weiterhin tritt der Best-Case zu selten ein um wirklich relevant zu sein. Er dient heute hauptsächlich nur dem Einstieg in Sortieralgorithmen und sollte wirklich nur zu lernzwecken verwendet werden.\\
 
 \textbf{SelectionSort:} Der SelectionSort besitzt immer eine Laufzeit von O($n^{2}$) was ihn von der O-Notation zum schlechtesten Algorithmus macht. Er liefert aber immer eine konstante Laufzeit und ein großer Vorteil ist, dass die Anzahl der Vertauschungen maximal n sind, da in jedem inneren Schleifen durchlauf nur ein einziges mal getauscht wird. \\
 
-\textbf{InsertionSort:} Der InsertionSort bietet Stabilität und besitzt einen In-Place Wert von O(1). Im vergleich zum BubbleSort ist der InsertionSort in allen bereichen überlegen.\\
+\textbf{InsertionSort:} Der InsertionSort bietet Stabilität und arbeitet In-Place. Im vergleich zum BubbleSort ist der InsertionSort in allen bereichen überlegen.\\
 
-\textbf{MegeSort:} Der MergeSort ist der einzige hier vorgestellte Algorithmus der mit einer Laufzeit von O(n log n) die Stabilität der Eingabe gewährt und sollte, falls man die Stabilität benötigt, gewählt werden.  Ein großes Problem ist aber der zusätzliche Speicherbedarf von O(n). Dies bedeutet das für eine Liste von zum Beispiel 2GB noch zusätzlich 2GB benötigt werden.\\
+\textbf{MegeSort:} Der MergeSort ist der einzige hier vorgestellte Algorithmus der mit einer Laufzeit von O(n log n) die Stabilität der Eingabe gewährt und sollte, falls man die Stabilität benötigt, gewählt werden.  Ein großes Problem ist aber der zusätzliche Hilfsspeicherbedarf von O(n). Dies bedeutet das für eine Liste von zum Beispiel 2GB noch zusätzlich 2GB benötigt werden.\\
 
 \textbf{HeapSort:} Der HeapSort liefert konstante Ergebnisse, die leicht schlechter sind als beim MergeSort. Er achtet nicht auf die Stabilität, arbeitet dafür aber In-Place mit O(1).\\
 
@@ -495,7 +494,10 @@ Anhand der Testfälle erkennt man, das die O-Notation keine genaue vergleiche zw
 %\subsection{Fazit}
 \subsection{Zusammenfassung und Ausblick}
 \subsubsection{Fazit}
-\subsubsection{Anwendungstipps}
+Ergebnisse zeigen, dass bei dem SelectionSort keine großen Schwankungen zwischen den Testfällen bei konstanter Listengröße gibt. Nicht besser konnte der BubbleSort abschneiden. Der seltene Auftritt der Best-Cases macht ihn nicht zu einem besseren Algorithmus als der SelectionSort. Im Durchschnitt ist der InsertionSort in jedem Gebieten dem BubbleSort überlegen. Der MergeSort is stabil, doch Schwäche zeigt er in der Speicherverwaltung, denn er benötigt doppelt so viel Speicher zum Sortieren. Der QuickSort liefert die besten Ergebnisse und arbeitet In-Place, doch eine Gefahr in den Worst-Case $n^{2}$ zu geraten. Der HeapSort ist nicht stabil, arbeitet In-Place und hat konstantere Ergebnisse als der MergeSort und sein Worst-Case ist ebenso O(n log n).
+\subsubsection{Ausblick}
+In der Neuzeit werden Sortieralgorithmen aus den vergangen Jahren verarbeitet, kombiniert oder auch weiterentwickelt. Der LibrarySort ist eine direkte Verbesserung des InsertionSorts. Die durchschnittliche Laufzeit des LibrarySort ist O(n log n), besser als die des InsertionSorts O($n^{2}$ ) \cite{librarySort}.
+Eine Kombination des QuickSort und des HeapSort ist der IntroSort \cite{introSort}. Dieses Verfahren benutzt zuerst den QuickSort, wechselt aber dann über auf den HeapSort, um das Worst-Case Szenario des QuickSort zu eliminieren.
 
 \section{Literaturverzeichnis}
 
